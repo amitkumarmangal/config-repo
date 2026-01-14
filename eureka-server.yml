@@ -1,6 +1,23 @@
+spring:
+  application:
+    name: EurekaServer
 server:
   port: 8761
 eureka:
+  # the hostname
+  instance:
+    hostname: localhost
+  # Eureka server time to sync with other peers,
+  # usually it's 3 min and it will retry if it doesnt
+  # get any response but for developpement we will put it to 0
+  numberRegistrySyncRetries: 0
+  #############################################
+  # EUREKA CLIENT CONFIGURATION#
+  #############################################
+  # the Eureka server has the same host as ours
+  # so we do this to stop the server from registring as it's own peer
   client:
     registerWithEureka: false
     fetchRegistry: false
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
