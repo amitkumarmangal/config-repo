@@ -13,7 +13,7 @@ spring:
             - id: customer-management
               uri: lb://customer-management
               predicates:
-                - Path=/customers/**
+                - Path=/rest/api/customers/v1/**
             - id: h2-console
               uri: lb://customer-management
               predicates:
