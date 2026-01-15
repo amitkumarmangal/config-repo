@@ -6,6 +6,8 @@ spring:
     name: api-gateway
 
   cloud:
+    config:
+      name: eureka-client,logging,actuator
     gateway:
       server:
         webflux:
