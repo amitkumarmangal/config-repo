@@ -1,5 +1,17 @@
+endpoints:
+  health:
+    sensitive: true
+
 management:
+  security:
+    enabled: false
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
   endpoints:
     web:
       exposure:
-        include: env, health, configprops
+        include: prometheus, metrics, info, health, shutdown, beans, env, configprops
