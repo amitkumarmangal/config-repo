@@ -10,7 +10,11 @@ spring:
       server:
         webflux:
           routes:
-            - id: user-service
-              uri: lb://user-service
+            - id: customer-management
+              uri: lb://customer-management
               predicates:
-                - Path=/users/**
+                - Path=/customers/**
+            - id: h2-console
+              uri: lb://customer-management
+              predicates:
+                - Path=/h2-console/**
