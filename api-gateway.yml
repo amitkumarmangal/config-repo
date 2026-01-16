@@ -18,3 +18,7 @@ spring:
               uri: lb://customer-management
               predicates:
                 - Path=/h2-console/**
+            - id: account-management
+              uri: lb://account-management
+              predicates:
+                - Path=/rest/api/account/v1/**
