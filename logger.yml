@@ -1,11 +1,13 @@
 logging:
   level:
+    root: DEBUG
     org.springframework.cloud: DEBUG #TRACE for detailed logs
     org.springframework.cloud.config: DEBUG
     org.springframework.cloud.gateway: DEBUG
     org.springframework.cloud.eureka: DEBUG
     org.springframework.web: DEBUG
-    root: DEBUG
+    org.springframework.orm.jpa: DEBUG
+    org.hibernate: DEBUG
     com.business: DEBUG
   pattern:
     level: "%5p [${spring.application.name:},traceId=%X{traceId},spanId=%X{spanId}]"
