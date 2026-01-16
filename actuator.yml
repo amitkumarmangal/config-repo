@@ -1,7 +1,6 @@
 endpoints:
   health:
     sensitive: true
-
 management:
   security:
     enabled: false
@@ -14,4 +13,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: prometheus, metrics, info, health, shutdown, beans, env, configprops
+        include: prometheus, metrics, info, health, shutdown, beans, env, configprops, gateway

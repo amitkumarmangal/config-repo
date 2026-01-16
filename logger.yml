@@ -5,3 +5,7 @@ logging:
     org.springframework.cloud.gateway: DEBUG
     org.springframework.cloud.eureka: DEBUG
     org.springframework.web: DEBUG
+    root: DEBUG
+    com.business: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name:},traceId=%X{traceId},spanId=%X{spanId}]"
