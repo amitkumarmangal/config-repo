@@ -1,9 +1,9 @@
 eureka:
   instance:
-    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${local.server.port}
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${local.server.port}
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
-    prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: true

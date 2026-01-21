@@ -9,6 +9,10 @@ spring:
     loadbalancer:
       configurations: round-robin
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       server:
         webflux:
           routes:
