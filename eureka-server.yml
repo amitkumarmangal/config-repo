@@ -7,9 +7,10 @@ eureka:
   # the hostname
   instance:
     hostname: localhost
+    prefer-ip-address: true
   # Eureka server time to sync with other peers,
   # usually it's 3 min and it will retry if it doesnt
-  # get any response but for developpement we will put it to 0
+  # get any response but for development we will put it to 0
   numberRegistrySyncRetries: 0
   #############################################
   # EUREKA CLIENT CONFIGURATION#
@@ -21,3 +22,8 @@ eureka:
     fetchRegistry: false
     service-url:
       default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: true
+    disable-delta: true
+    eviction-interval-timer-in-ms: 10000
+    response-cache-update-interval-ms: 30000

@@ -1,12 +1,12 @@
 eureka:
   client:
-    serviceUrl:
-      #we tell the Eureka Client the sever url
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 10
+    service-url:
       defaultZone: http://localhost:8761/eureka/
-      # the eureka client will send heart beats every 10 seconds, default is 30 seconds
   instance:
-    leaseRenewalIntervalInSeconds: 10
-      # A Eureka instance is identified by eureka.instance.instanceId
-      # if not used eureka.instance.metadataMap.instanceId will be it should be unique
-    metadataMap:
-      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}:${random.value}}
+    instance-id: ${spring.application.name}:${random.uuid}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+    prefer-ip-address: true

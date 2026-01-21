@@ -2,6 +2,7 @@ logging:
   level:
     root: DEBUG
     org.springframework.cloud: DEBUG #TRACE for detailed logs
+    org.springframework.cloud.loadbalancer: DEBUG
     org.springframework.cloud.config: DEBUG
     org.springframework.cloud.gateway: DEBUG
     org.springframework.cloud.eureka: DEBUG
