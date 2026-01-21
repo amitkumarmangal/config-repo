@@ -8,18 +8,18 @@ spring:
   cloud:
     loadbalancer:
       configurations: round-robin
-      server:
-        webflux:
-          #discovery:
-           # locator:
-           #   enabled: true
-           #   lower-case-service-id: true
-          routes:
-            - id: customer-management
-              uri: lb://CUSTOMER-MANAGEMENT
-              predicates:
-                - Path=/rest/api/customers/v1/**,/h2-console/**
-            - id: account-management
-              uri: lb://ACCOUNT-MANAGEMENT
-              predicates:
-                - Path=/rest/api/account/v1/**
+    server:
+      webflux:
+        discovery:
+          locator:
+            enabled: true
+            lower-case-service-id: true
+        routes:
+          - id: customer-management
+            uri: lb://CUSTOMER-MANAGEMENT
+            predicates:
+              - Path=/rest/api/customers/v1/**,/h2-console/**
+          - id: account-management
+            uri: lb://ACCOUNT-MANAGEMENT
+            predicates:
+              - Path=/rest/api/account/v1/**
