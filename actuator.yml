@@ -5,6 +5,8 @@ management:
   security:
     enabled: false
   endpoint:
+    gateway:
+      enabled: true
     health:
       show-details: always
       show-components: always

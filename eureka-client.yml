@@ -1,7 +1,7 @@
 eureka:
   instance:
     prefer-ip-address: true
-    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${local.server.port}
+    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${server.port}
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
   client:
@@ -11,4 +11,9 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
     metadata-map:
-      port: ${local.server.port}
+      port: ${server.port}
+spring:
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: false
