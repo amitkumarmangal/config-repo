@@ -11,4 +11,4 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
     metadata-map:
-      port: ${server.port}
+      port: ${local.server.port}

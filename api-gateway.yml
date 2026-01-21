@@ -19,8 +19,8 @@ spring:
             - id: customer-management
               uri: lb://customer-management
               predicates:
-                - Path=/rest/api/customers/v1/**,/h2-console/**
+                - Path=/rest/api/customers/v1/**,/customer-management/db/h2-console/**,/customer-management/actuator/**
             - id: account-management
               uri: lb://ACCOUNT-MANAGEMENT
               predicates:
-                - Path=/rest/api/account/v1/**
+                - Path=/rest/api/account/v1/**,/account-management/db/h2-console/**,/account-management/actuator/**
