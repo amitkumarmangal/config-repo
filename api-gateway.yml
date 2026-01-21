@@ -10,10 +10,10 @@ spring:
       configurations: round-robin
       server:
         webflux:
-          discovery:
-            locator:
-              enabled: true
-              lower-case-service-id: true
+          #discovery:
+           # locator:
+           #   enabled: true
+           #   lower-case-service-id: true
           routes:
             - id: customer-management
               uri: lb://CUSTOMER-MANAGEMENT
