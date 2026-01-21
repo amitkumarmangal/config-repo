@@ -6,7 +6,7 @@ management:
     enabled: false
   endpoint:
     gateway:
-      enabled: true
+      access: unrestricted
     health:
       show-details: always
       show-components: always

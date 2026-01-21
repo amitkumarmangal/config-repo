@@ -5,6 +5,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
   client:
+    enabled: true
     register-with-eureka: true
     fetch-registry: true
     registry-fetch-interval-seconds: 10
