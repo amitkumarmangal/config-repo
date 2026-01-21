@@ -17,10 +17,22 @@ spring:
               lower-case-service-id: true
           routes:
             - id: customer-management
-              uri: lb://customer-management
+              uri: lb://CUSTOMER-MANAGEMENT
               predicates:
-                - Path=/rest/api/customers/v1/**,/customer-management/db/h2-console/**,/customer-management/actuator/**
+                - Path=/rest/api/customers/v1/**
+            - id: customer-management-all
+              uri: lb://CUSTOMER-MANAGEMENT
+              predicates:
+                - Path=/customer-management/db/h2-console/**,/customer-management/actuator/**
+              filters:
+                - StripPrefix=1
             - id: account-management
               uri: lb://ACCOUNT-MANAGEMENT
               predicates:
-                - Path=/rest/api/account/v1/**,/account-management/db/h2-console/**,/account-management/actuator/**
+                - Path=/rest/api/account/v1/**
+            - id: account-management-all
+              uri: lb://ACCOUNT-MANAGEMENT
+              predicates:
+                - Path=/account-management/db/h2-console/**,/account-management/actuator/**
+              filters:
+                - StripPrefix=1
