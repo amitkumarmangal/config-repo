@@ -13,8 +13,3 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     metadata-map:
       port: ${server.port}
-spring:
-  cloud:
-    service-registry:
-      auto-registration:
-        enabled: false
