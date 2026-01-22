@@ -4,3 +4,5 @@ logging:
     name: central-log
   request-response:
     enabled: true
+  level:
+    org.hibernate.SQL: OFF

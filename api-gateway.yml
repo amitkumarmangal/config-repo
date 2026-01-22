@@ -21,6 +21,12 @@ spring:
               uri: lb://CUSTOMER-MANAGEMENT
               predicates:
                 - Path=/rest/api/customers/v1/**
+            - id: customer-management-actuator-root
+              uri: lb://CUSTOMER-MANAGEMENT
+              predicates:
+                - Path=/customer-management/actuator
+              filters:
+                - RewritePath=/customer-management/actuator, /actuator
             - id: customer-management-actuator
               uri: lb://CUSTOMER-MANAGEMENT
               predicates:
@@ -37,6 +43,12 @@ spring:
               uri: lb://ACCOUNT-MANAGEMENT
               predicates:
                 - Path=/rest/api/account/v1/**
+            - id: account-management-actuator-root
+              uri: lb://ACCOUNT-MANAGEMENT
+              predicates:
+                - Path=/account-management/actuator
+              filters:
+                - RewritePath=/account-management/actuator, /actuator
             - id: account-management-actuator
               uri: lb://ACCOUNT-MANAGEMENT
               predicates:
