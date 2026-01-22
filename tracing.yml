@@ -8,3 +8,8 @@ tracing:
 management:
   tracing:
     enabled: true
+spring:
+  cloud:
+    openfeign:
+      micrometer:
+        enabled: true
