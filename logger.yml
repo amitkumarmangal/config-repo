@@ -1,6 +1,6 @@
 logging:
   file:
     path: c:/logs
-    name: central-log.json
+    name: central-log
   request-response:
     enabled: true
