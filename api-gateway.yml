@@ -21,12 +21,18 @@ spring:
               uri: lb://CUSTOMER-MANAGEMENT
               predicates:
                 - Path=/rest/api/customers/v1/**
-            - id: customer-management-all
+            - id: customer-management-actuator
               uri: lb://CUSTOMER-MANAGEMENT
               predicates:
-                - Path=/customer-management/db/h2-console/**,/customer-management/actuator/**
+                - Path=/customer-management/actuator/**
               filters:
-                - StripPrefix=1
+                  - RewritePath=/customer-management/actuator/(?<segment>.*), /actuator/${segment}
+            - id: customer-management-database
+              uri: lb://CUSTOMER-MANAGEMENT
+              predicates:
+                - Path=/customer-management/db/**
+              filters:
+                - RewritePath=/customer-management/db/**(?<segment>.*), db/${segment}
             - id: account-management
               uri: lb://ACCOUNT-MANAGEMENT
               predicates:
