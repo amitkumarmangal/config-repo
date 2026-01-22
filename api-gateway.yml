@@ -32,14 +32,20 @@ spring:
               predicates:
                 - Path=/customer-management/db/**
               filters:
-                - RewritePath=/customer-management/db/**(?<segment>.*), /db/${segment}
+                - RewritePath=/customer-management/db/(?<segment>.*), /db/${segment}
             - id: account-management
               uri: lb://ACCOUNT-MANAGEMENT
               predicates:
                 - Path=/rest/api/account/v1/**
-            - id: account-management-all
+            - id: account-management-actuator
               uri: lb://ACCOUNT-MANAGEMENT
               predicates:
-                - Path=/account-management/db/h2-console/**,/account-management/actuator/**
+                - Path=/account-management/actuator/**
               filters:
-                - StripPrefix=1
+                - RewritePath=/account-management/actuator/(?<segment>.*), /actuator/${segment}
+            - id: account-management-database
+              uri: lb://ACCOUNT-MANAGEMENT
+              predicates:
+                - Path=/account-management/db/**
+              filters:
+                - RewritePath=/account-management/db/(?<segment>.*), /db/${segment}
