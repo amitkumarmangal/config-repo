@@ -4,7 +4,8 @@ server:
 spring:
   application:
     name: api-gateway
-
+  reactor:
+    context-propagation: AUTO
   cloud:
     gateway:
       loadbalancer:
